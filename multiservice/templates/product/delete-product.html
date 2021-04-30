@@ -1,0 +1,26 @@
+{% extends '_base.html' %}
+
+
+{% block content %}
+<div class="p-3 mt-4">
+  <h2 class="text-center">
+    Suppression du produit: <span class="text-info">{{ product }}</span>
+  </h2>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            <a href="{% url 'all_products' %}" class="btn btn-primary">Annuler</a>
+            <button type="submit" class="btn btn-danger">Je confirme la suppression</button>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

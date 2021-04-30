@@ -1,0 +1,134 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+
+<h1 class="mt-4">Tableau de bord</h1>
+<!-- <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Tableau de bord</li>
+          </ol> -->
+<div class="row">
+  <div class="col-xl-3 col-md-6">
+    <div class="card bg-primary text-white mb-4">
+      <div class="card-body">{{ product_count }}</div>
+      <div class="card-footer d-flex align-items-center justify-content-between">
+        <span class="small text-white stretched-link">Produits</span>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-md-6">
+    <div class="card bg-warning text-white mb-4">
+      <div class="card-body"> {{ expenses }}</div>
+      <div class="card-footer d-flex align-items-center justify-content-between">
+        <span class="small text-white stretched-link">Dépense</span>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-md-6">
+    <div class="card bg-success text-white mb-4">
+      <div class="card-body"> {{ incomes }}</div>
+      <div class="card-footer d-flex align-items-center justify-content-between">
+        <span class="small text-white stretched-link">Revenu</span>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-md-6">
+    <div class="card {% if sales_figures > 0 %} bg-info {% else %} bg-danger {% endif %} text-white mb-4">
+      <div class="card-body">{{ sales_figures }}</div>
+      <div class="card-footer d-flex align-items-center justify-content-between">
+        <span class="small text-white stretched-link">Chiffre d'affaires </span>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4">
+  <div class="card-header">
+    <i class="fas fa-table mr-1"></i>
+    Dernieres Depenses
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Prix</th>
+            <th>Montant</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>#</th>
+            <th>Prix</th>
+            <th>Montant total</th>
+            <th>Date</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          {% for transaction in transaction_spents %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ transaction.price }}</td>
+            <td>{{ transaction.total_price }}</td>
+            <td>{{ transaction.created_at|date:'d-m-Y' }}</td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="card mb-4">
+  <div class="card-header">
+    <i class="fas fa-table mr-1"></i>
+    Dernieres Ventes
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Prix d'achat</th>
+            <th>Prix vendu unitaire</th>
+            <th>Montant total</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Produit</th>
+            <th>Prix d'achat</th>
+            <th>Prix vendu</th>
+            <th>Montant total</th>
+            <th>Date</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          {% for transaction in transaction_incomes %}
+          <tr>
+            <td>{{ transaction.product.name }}</td>
+            <td>{{ transaction.product.price }}</td>
+            <td>{{ transaction.price }}</td>
+            <td>{{ transaction.total_price }}</td>
+            <td>{{ transaction.created_at|date:'d-m-Y' }}</td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+{% endblock content %}

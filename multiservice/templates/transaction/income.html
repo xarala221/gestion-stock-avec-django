@@ -1,0 +1,20 @@
+{% extends '_base.html' %}
+
+
+{% block content %}
+<div class="p-3 mt-4">
+  <h2 class="text-center">Nouvelle vente</h2>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+          <a class="btn btn-outline-primary" href="{% url 'all_transactions' %}">Annuler</a>
+          <button class="btn btn-primary" type="submit">Valider</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

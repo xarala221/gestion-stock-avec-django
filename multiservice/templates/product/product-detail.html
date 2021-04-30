@@ -1,0 +1,64 @@
+{% extends '_base.html' %}
+
+
+{% block content %}
+<div class="p-3 mt-4">
+  <h2 class="text-center">
+    Les détails du produit: <span class="text-info">{{ product }}</span>
+  </h2>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">
+            Prix: {{ product.price }}
+
+          </p>
+          <p class="card-text">
+            Quantité en stock: {{ product.quantity }}
+          </p>
+        </div>
+      </div>
+      <div class="card mt-2">
+        <div class="card-body">
+          <h5 class="card-title">Ventes</h5>
+
+          {% if product.all_transactions.all %}
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Quantité vendue</th>
+                <th scope="col">Prix vendu</th>
+                <th scope="col">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for transaction in product.all_transactions.all %}
+              <tr>
+                <th scope="row">{{ transaction.id }}</th>
+                <td>{{ transaction.quantity }}</td>
+                <td>{{ transaction.price }}</td>
+                <td>{{ transaction.created_at|date:'d-m-Y' }}</td>
+              </tr>
+
+
+              {% endfor %}
+
+            </tbody>
+          </table>
+
+
+
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,92 @@
+{% extends '_base.html' %}
+
+
+{% block content %}
+<div class="mt-4">
+  <div class="row">
+    <div class="col">
+      <div class="float-right mb-4">
+        <a href="{% url 'add_spent' %}" class="btn btn-outline-primary">Nouvelle depense</a>
+
+        <a href="{% url 'add_income' %}" class="btn btn-outline-success">Nouvelle vente</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row ">
+
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header">
+          <i class="fas fa-table mr-1"></i>
+          Liste des transactions
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Produit</th>
+                  <th>Type d'operation</th>
+                  <th>Prix</th>
+                  <th>Prix vendu</th>
+                  <th>Quantité vendue</th>
+                  <th>Montant total</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Produit</th>
+
+                  <th>Prix</th>
+                  <th>Type d'operation</th>
+                  <th>Prix vendu</th>
+                  <th>Quantité vendue</th>
+                  <th>Montant total</th>
+                  <th>Date</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                  <td>
+                    {% if transaction.transaction_type == "0" %}
+                    Neant
+                    {% else %}
+                    {{ transaction.product.name }}
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if transaction.transaction_type == "0" %}
+                    Dpense
+                    {% else %}
+                    Vente
+                    {% endif %}
+                  </td>
+                  <td>
+                    {{ transaction.product.price }}
+                  </td>
+                  <td>
+                    {{ transaction.price }}
+                  </td>
+                  <td>
+                    {{ transaction.quantity }}
+                  </td>
+
+                  <td>{{ transaction.total_price }}</td>
+                  <td>{{ transaction.created_at|date:'d-m-Y' }}</td>
+                </tr>
+                {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock content %}

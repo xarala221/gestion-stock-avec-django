@@ -6,7 +6,7 @@ from .models import CustomUser
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(
-        max_length=15, widget=forms.EmailInput({"class": "form-control"}))
+        max_length=65, widget=forms.EmailInput({"class": "form-control"}))
     password1 = forms.CharField(
         label="Mot de passe",
         widget=forms.PasswordInput({"class": "form-control"}))

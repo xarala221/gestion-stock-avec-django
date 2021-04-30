@@ -47,38 +47,3 @@ def register_user(request):
         "account/register.html",
         {"form": form}
     )
-
-
-"""[Projet donné par le Prof]
-
-Cahier de charges:
-
-Header
-Accueil
-Inscription
-Formation
-  modules
-  profs
-  sales
-  etudiants
-  presences
-  bulletins
-Paiements
-Statistiques
-Utilisateurs
-Sauvegarde et restauration
-
-Technolgoies:
-
-Servlet
-JSP
-EJB3
-JPA
-Mysql
-Bootstrap
-UML
-Git et Github
-
-Methodologies:
-Etablir un planning de travail
-"""

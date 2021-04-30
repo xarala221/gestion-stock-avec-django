@@ -23,6 +23,7 @@ urlpatterns = [
     path("", include("account.urls")),
     path("", include("product.urls")),
     path("", include("transaction.urls")),
+    path('api-auth/', include('rest_framework.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,

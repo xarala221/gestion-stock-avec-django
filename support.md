@@ -4,9 +4,9 @@ Une formation pratique sur  Django, un framework Python très populaire.
 
 ## Tableau des matieres
 
-- [Installation de Python](#Installation-de-Python)
-- [Installation de Visual Studio Code](#Installation-de-Visual-Studio-Code)
-- [Mettre en place son projet](#Mettre en place son projet)
+- Installation de Python
+- Installation de Visual Studio Code
+- Mettre en place son projet
 
 ## Installation de Python
 

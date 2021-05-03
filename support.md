@@ -328,6 +328,6 @@ Les commandes:
 Je reste disponible 24/7
 
 Whatsapp: +221 76 377 22 60
-Email: mstspr1155@gamil.com
+Email: mstspr1155@gmail.com
 
 Happy Pythonning -:)

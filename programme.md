@@ -1,5 +1,12 @@
 # Formation Python/Dajngo + Certificat
 
+## Horaire
+
+Vendredi: 22H
+Samedi: 10H et 22H
+Dimanche: 22H
+Lundi: 22H
+
 ## Methodologies de la formation
 
 Learn By Doing
@@ -28,6 +35,7 @@ Les opérateurs mathématiques
 Les structures de données
 Les structures de répétition
 Les structures conditionnels
+La programmation Oriente objet
 
 ## Initialisation du projet stock_management
 
@@ -72,3 +80,4 @@ Mettre l'application sur Github
 Installer les dépendances
 Configurer Gunicorn
 Configurer Nginx
+Suivre les bugs enb Prod avec Sentry
